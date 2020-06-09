@@ -32,15 +32,26 @@ def index():
         tasks = Task.query.order_by(Task.date_created).all()
         return render_template('index.html',tasks=tasks)
 
-@app.route('/delete/<int:id>')
-def delete(id):
-    task = Task.query.get_or_404(id)
+# @app.route('/complete/<int:id>')
+# def delete(id):
+#     task = Task.query.get_or_404(id)
+#     try:
+#         db.session.delete(task)
+#         db.session.commit()
+#         return redirect('/')
+#     except:
+#         return 'error '
+
+@app.route('/clearlist')
+def clearlist():
+    tasks=Task.query.all()
     try:
-        db.session.delete(task)
+        for task in tasks:
+            db.session.delete(task)
         db.session.commit()
         return redirect('/')
     except:
-        return 'error '
+        return 'error'
 
 @app.route('/update/<int:id>', methods=['POST','GET'])
 def update(id):

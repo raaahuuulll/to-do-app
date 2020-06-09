@@ -28,8 +28,30 @@ td {
 
 .form {
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 #content {
     width: 70%;
 }
+
+tr{
+    background-color: lightgray;
+}
+
+tr.disabled{
+    background-color: lightgray;
+}
+
+.strike{
+    text-decoration: line-through;
+}
+
+button,input{
+    cursor: pointer;
+}
+/* 
+.link{
+    background:none;
+    border:none;
+} */
